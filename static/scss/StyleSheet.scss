@@ -1,0 +1,61 @@
+﻿
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.app-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+}
+
+.map-container {
+    flex: 2;
+    // about 66% height: 100%;
+    background-color: #eaeaea;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+}
+
+.search-panel {
+    flex: 1;
+    // about 33% height: 100%;
+    background-color: #ffffff;
+    border-left: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+    .search-panel h2 {
+        margin-top: 0;
+    }
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input,
+button {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+button {
+    cursor: pointer;
+    margin-top: 10px;
+}

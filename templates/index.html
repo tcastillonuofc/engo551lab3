@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calgary Building Permits Map</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/StyleSheet.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- MarkerCluster CSS -->
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css" />
+    <link rel="stylesheet"
+          href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css" />
+</head>
+<body>
+    <div class="app-container">
+        <div class="map-container">
+            <div id="map"></div>
+        </div>
+
+        <div class="search-panel">
+            <h2>Search Building Permits</h2>
+
+            <div class="form-group">
+                <label for="start-date">Start Date</label>
+                <input type="date" id="start-date" />
+            </div>
+
+            <div class="form-group">
+                <label for="end-date">End Date</label>
+                <input type="date" id="end-date" />
+            </div>
+
+            <div class="button-row">
+                <button id="search-btn">Search</button>
+                <button id="clear-btn" class="clear-btn" type="button">🗑 Clear Results</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+    <!-- Overlapping markers -->
+    <script src="https://unpkg.com/overlapping-marker-spiderfier-leaflet@0.2.7/build/oms.js"></script>
+
+    <!-- MarkerCluster -->
+    <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+    <script>
+        const today = new Date().toISOString().split("T")[0];
+        document.getElementById("start-date").setAttribute("max", today);
+        document.getElementById("end-date").setAttribute("max", today);
+    </script>
+
+</body>
+</html>
