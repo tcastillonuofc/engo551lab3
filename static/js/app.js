@@ -216,10 +216,12 @@ const MAPBOX_ACCESS_TOKEN = "pk.eyJ1IjoidGl0dXNjYXN0aWxsb24iLCJhIjoiY21td2Vqc3lh
 const MAPBOX_STYLE_ID = "tituscastillon/cmmy5ljey00ie01rn6b0o0xcf";
 
 const trafficLayer = L.tileLayer(
-    `https://api.mapbox.com/styles/v1/${MAPBOX_STYLE_ID}/tiles/256/{z}/{x}/{y}@2x?access_token=${MAPBOX_ACCESS_TOKEN}&fresh=true`,
+    `https://api.mapbox.com/styles/v1/${MAPBOX_STYLE_ID}/tiles/256/{z}/{x}/{y}@2x?access_token=${MAPBOX_ACCESS_TOKEN}&fresh=true&t=${Date.now()}`,
     {
         attribution: '© <a href="https://www.mapbox.com/">Mapbox</a>',
-        tileSize: 256
+        tileSize: 256,
+        minZoom: 0,
+        maxZoom: 22
     }
 );
 
