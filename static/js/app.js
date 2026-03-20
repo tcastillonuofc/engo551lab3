@@ -208,3 +208,30 @@ document.getElementById("search-btn").addEventListener("click", async () => {
         alert("An error occurred while fetching permit data.");
     }
 });
+
+// -----------------------------
+// Mapbox Traffic Incidents Layer
+// -----------------------------
+const MAPBOX_ACCESS_TOKEN = "pk.eyJ1IjoidGl0dXNjYXN0aWxsb24iLCJhIjoiY21td2Vqc3lhMGNsYTJyb3NnbTczYnQ4eSJ9.Zgm2qjpjl9sR1dztiuWr6A";
+const MAPBOX_STYLE_ID = "tituscastillon/cmmy5ljey00ie01rn6b0o0xcf";
+
+const trafficLayer = L.tileLayer(
+    `https://api.mapbox.com/styles/v1/${MAPBOX_STYLE_ID}/tiles/256/{z}/{x}/{y}@2x?access_token=${MAPBOX_ACCESS_TOKEN}`,
+    {
+        attribution: '© <a href="https://www.mapbox.com/">Mapbox</a>',
+        tileSize: 256
+    }
+);
+
+let trafficLayerVisible = false;
+
+document.getElementById("toggle-traffic-btn").addEventListener("click", () => {
+    if (trafficLayerVisible) {
+        map.removeLayer(trafficLayer);
+        document.getElementById("toggle-traffic-btn").textContent = "🚦 Show Traffic Layer";
+    } else {
+        map.addLayer(trafficLayer);
+        document.getElementById("toggle-traffic-btn").textContent = "🚦 Hide Traffic Layer";
+    }
+    trafficLayerVisible = !trafficLayerVisible;
+});
